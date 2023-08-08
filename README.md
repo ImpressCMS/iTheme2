@@ -1,12 +1,7 @@
-# Bootstrap 5 ImpressCMS Theme
+# iTheme 2.0
 
-Include [Bootstrap](https://getbootstrap.com)'s code from a CDN
-
-## Edit in browser
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/twbs/examples/tree/main/vite?file=src%2Findex.html)
+iTheme was the original theme that shipped with ImpressCMS 1.0. Now, 10 years later the web has evolved considerably, and this is the follow-up version, based on the Bootstrap 5 framework.
 
 ## How to use
 
 ... coming soon ...
-At the moment the base HTML is still being built. The transformation to a theme will come after that.
