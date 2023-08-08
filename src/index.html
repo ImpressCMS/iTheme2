@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bootstrap w/out Vite</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <script type="application/javascript">
+        $(document).ready(function() {
+
+            // Check for click events on the navbar burger icon
+            $(".navbar-burger").click(function() {
+
+                // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+                $(".navbar-toggler").toggleClass("is-active");
+                $(".navbar-menu").toggleClass("is-active");
+
+            });
+        });
+    </script>
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary py-3 mb-2 border-bottom">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="./img/impresscms-logo.svg" height="30"></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="navbar-menu d-flex justify-content-center collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="#">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Pricing</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled">Disabled</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="d-flex justify-content-end">
+                <button class="btn btn-outline-primary">Login</button>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="border-bottom">
+    <div class="container py-0 px-1 mx-auto">
+        <nav aria-label="breadcrumb border-bottom">
+            <ol class="breadcrumb p-3 bg-body-tertiary rounded-3">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item"><a href="#">Library</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Data</li>
+            </ol>
+        </nav>
+    </div>
+</div>
+
+<div class="container-md">
+    <div class="row">
+        <div class="col-md-2 col-xs-12 xo-canvas-column xo-canvas-leftcolumn">
+            <div class="container">
+                <div class="card xo-block">
+                    <div class="card-header">
+                        User Menu
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><a href="#">Administration Menu</a></li>
+                        <li class="list-group-item"><a href="#" class="actlink">View Account</a></li>
+                        <li class="list-group-item"><a href="#" class="menuSub">Notifications</a></li>
+                        <li class="list-group-item"><a href="#">Inbox</a></li>
+                        <li class="list-group-item"><a href="#">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8 col-xs-12 xo-page">
+            <div class="container">
+                <div class="row xo-page-topblocks">
+                    <div class="col-md col-sm-12 xo-page-topleftblocks">
+                        <div class="card xo-block">
+                            <div class="card-header">
+                                Top Left
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                                    Bootstrap.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-12 xo-page-topcenterblocks">
+                        <div class="card xo-block">
+                            <div class="card-header">
+                                Top Center
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                                    Bootstrap.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md col-sm-12 xo-page-toprightblocks">
+                        <div class="card xo-block">
+                            <div class="card-header">
+                                Top Right
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                                    Bootstrap.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="card xo-block">
+                    <div class="card-header">
+                        <h3>Welcome Webmaster!</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="xo-blockcontent">
+                            <p>Welcome to your new ImpressCMS powered website. If you haven't already, please delete the
+                                <strong>install</strong> folder from the server and ensure that <strong>mainfile.php</strong> is
+                                not writeable (chmod 444).</p>
+                            <p>To begin administering your new ImpressCMS powered website you can click the <strong>Administration</strong>
+                                Menu link located on the left of this page.</p>
+                            <p>You may want to begin by editing your website <strong>Preferences</strong>: In the admin panel,
+                                hover over the <strong>System</strong> dropdown and select <strong>Preferences.</strong></p>
+                            <p>Afterwards you can begin adding <strong>Modules</strong> and <strong>Themes</strong>.</p>
+                            <p>Many of the available modules and themes for ImpressCMS, are available at the <a
+                                    href="https://www.impresscms.org/modules/downloads" rel="external"
+                                    target="_blank">Addons</a> section of the <a href="https://www.impresscms.org"
+                                                                                 rel="external" target="_blank">projects
+                                website</a>.</p>
+                            <p>You will also need to begin using <strong>Blocks</strong>. You can begin by removing this block.
+                                You can do this by navigating to System Admin &gt; Blocks, and the selecting "Webmasters" in the
+                                <strong>Groups</strong> select box. You will then be able to see the blocks available for the
+                                Webmasters group, which this block is!</p>
+                            <p>For more information about working with ImpressCMS, please use the links below.</p>
+                            <ul>
+                                <li>
+                                    <a href="https://www.impresscms.org/modules/simplywiki/index.php?page=English#Using_ImpressCMS"
+                                       rel="external" target="_blank">Using ImpressCMS</a></li>
+                                <li>
+                                    <a href="https://www.impresscms.org/modules/simplywiki/index.php?page=English#Customizing_ImpressCMS"
+                                       rel="external" target="_blank">Customizing ImpressCMS</a></li>
+                                <li>
+                                    <a href="https://www.impresscms.org/modules/simplywiki/index.php?page=English#Developing_for_ImpressCMS"
+                                       rel="external" target="_blank">Developing for ImpressCMS</a></li>
+                            </ul>
+                            <p>We warmly invite you to join <a href="https://www.impresscms.org/modules/iforum/" rel="external"
+                                                               target="_blank">The ImpressCMS Community</a> - Where you can
+                                make contributions, get help, help others, etc...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+
+                </div>
+            </div>
+            <div class="container">
+                <div class="row xo-page-bottomblocks">
+                    <div class="col-md col-sm-12 xo-page-bottomleftblocks">
+                        <div class="card xo-block">
+                            <div class="card-header">
+                                Bottom Left
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                                    Bootstrap.</p>
+                            </div>
+                        </div>                    </div>
+                    <div class="col-md-5 col-sm-12 xo-page-bottomcenterblocks">
+                        <div class="card xo-block">
+                            <div class="card-header">
+                                Bottom Center
+                            </div>
+                            <div class="card-body">
+                                <p class="fs-4">You've successfully loaded the Bootstrap + Vite example! It's loaded up with <a
+                                        href="https://getbootstrap.com/">Bootstrap 5</a> and uses Vite to compile and bundle our Sass and
+                                    JavaScript.</p>
+                                <p>If this button appears blue and the link appears purple, you've done it!</p>
+                            </div>
+
+                            <button type="button" class="btn btn-primary me-3" data-bs-toggle="offcanvas"
+                                    data-bs-target="#offcanvasExample">Toggle offcanvas
+                            </button>
+                            <a id="popoverButton" class="text-success" href="#" role="button" data-bs-toggle="popover"
+                               title="Custom popover" data-bs-content="This is a Bootstrap popover.">Example popover</a>
+                        </div>
+                    </div>
+                    <div class="col-md col-sm-12 xo-page-bottomrightblocks">
+                        <div class="card xo-block">
+                            <div class="card-header">
+                                Bottom Right
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                                    Bootstrap.</p>
+                            </div>
+                        </div>                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-sm-12 xo-canvas-column xo-canvas-rightcolumn">
+            <div class="card xo-block">
+                <div class="card-header">
+                    Guides
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                        Bootstrap.</p>
+                </div>
+            </div>
+            <div class="card xo-block">
+                <div class="card-header">
+                    Guides
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Read more detailed instructions and documentation on using or contributing to
+                        Bootstrap.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <div class="container text-center">
+        <div class="row py-5 border-top">
+            <p class="text-muted">Created and open sourced by the Bootstrap team. Licensed MIT.</p>
+        </div>
+        <div class="row">
+            <div class="col mb-3">
+                <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
+                    <svg class="bi me-2" width="40" height="32">
+                        <use xlink:href="#bootstrap"></use>
+                    </svg>
+                </a>
+                <p class="text-body-secondary">© 2023</p>
+            </div>
+
+            <div class="col mb-3">
+                <h5>Section</h5>
+            </div>
+
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                </ul>
+            </div>
+
+            <div class="col mb-3">
+                <h5>Section</h5>
+                <ul class="nav flex-column">
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
+                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+</body>
+</html>

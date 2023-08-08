@@ -1,0 +1,26 @@
+<{$form.javascript}>
+<form id="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}>>
+  <{if $form.title}><h3><{$form.title}></h3><{/if}>
+    <!-- start of form elements loop -->
+    <{foreach item=element from=$form.elements}>
+      <{if $element.section == true}>
+        <p><{$element.body}></p>
+      <{elseif $element.section_close == true}>
+        <p><{$element.body}></p>
+      <{elseif $element.hidden != true}>
+        <div class="form-outline" id="<{$element.name}>_row">
+          <label for="<{$element.name}>" class="form-label"><{$element.caption}><{if $element.required}> <span style='color:#f00'>*</span><{/if}></label>
+          <{$element.body}>
+          <{if $element.description}>
+          <div id="<{$element.name}>Help" class="form-text"><{$element.description}></div>
+          <{/if}>
+        </div>
+
+
+      <{else}>
+      <{$element.body}>
+      <{/if}>
+    <{/foreach}>
+    <!-- end of form elements loop -->
+
+</form>

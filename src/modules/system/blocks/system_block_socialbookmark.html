@@ -1,0 +1,9 @@
+<{if $block.provider}>
+<div class="row">
+<{foreach item=provider from=$block.provider}>
+	<div class="col">
+		<a href="#" onclick="window.open(<{$provider.link}>);return false;" rel="nofollow" title="<{$provider.title}>"><img src="<{$block.imagepath}><{$provider.image}>" alt="<{$provider.title}>"/></a>
+	</div>
+<{/foreach}>
+</div>
+<{/if}>

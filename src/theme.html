@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="<{$icms_langcode}>">
+<head>
+	<!-- Theme name -->
+	<{assign var=theme_name value=$xoTheme->folderName}>
+
+	<title><{if $icms_pagetitle !=''}><{$icms_pagetitle}> : <{/if}><{$icms_sitename}></title>
+	<meta charset="<{$icms_charset}>">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<meta name="generator" content="ImpressCMS"/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+	<{$icms_module_header}>
+	<link rel="stylesheet" href="<{$icms_imageurl}>css/theme.css">
+</head>
+<body>
+<header>
+	<{includeq file="$theme_name/templates/header.html.tpl" zoneId="menu"}>
+</header>
+<div class="container-fluid">
+	<div class="row">
+		<{if $xoBlocks.canvas_left}>
+		<div class="col-md-2 col-xs-12 xo-canvas-column xo-canvas-leftcolumn">
+			<div class="container">
+		<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.canvas_left
+		zoneClass='xo-canvas-column' zoneId='xo-canvas-leftcolumn'
+		}>
+			</div>
+		</div>
+		<{/if}>
+		<div class="col-md-8 col-xs-12 xo-page">
+			<div class="container">
+				<div class="row xo-page-topblocks">
+					<div class="col-md col-sm-12 xo-page-topleftblocks">
+						<{if $xoBlocks.page_topleft}>
+						<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.page_topleft zoneClass="zone_page_topleft" zoneId='xo-canvas-topleft' zoneContainer=0}>
+						<{/if}>
+						<{if $xoBlocks.page_topcenter}>
+						<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.page_topcenter zoneClass="zone_page_topcenter" zoneId='xo-canvas-topcenter' zoneContainer=0}>
+						<{/if}>
+						<{if $xoBlocks.page_topright}>
+						<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.page_topright zoneClass="zone_page_topright" zoneId='xo-canvas-topright' zoneContainer=0}>
+						<{/if}>
+					</div>
+				</div>
+			</div>
+			<{if $icms_contents}>
+			<div class="container">
+				<{$icms_contents}>
+			</div>
+			<{/if}>
+
+			<div class="container">
+				<div class="row xo-page-bottomblocks">
+						<{if $xoBlocks.page_bottomleft}>
+					<div class="col xo-page-bottomleftblocks">
+						<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.page_bottomleft zoneClass="zone_page_bottomleft" zoneContainer=0}>
+					</div>
+						<{/if}>
+
+						<{if $xoBlocks.page_bottomcenter}>
+					<div class="col xo-page-bottomblocks">
+						<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.page_bottomcenter zoneClass="zone_page_bottomcenter" zoneContainer=0}>
+					</div>
+						<{/if}>
+
+						<{if $xoBlocks.page_bottomright}>
+					<div class="col xo-page-bottomrightblocks">
+						<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.page_bottomright zoneClass="zone_page_bottomright" zoneContainer=0}>
+					</div>
+						<{/if}>
+
+				</div>
+			</div>
+
+		</div>
+		<{if $xoBlocks.canvas_right}>
+		<div class="col-md-2 col-xs-12 xo-canvas-column xo-canvas-rightcolumn">
+			<div class="container">
+				<{includeq file="$theme_name/templates/blockszone.html.tpl" blocks=$xoBlocks.canvas_right
+				zoneClass='xo-canvas-column' zoneId='xo-canvas-rightcolumn'
+				}>
+			</div>
+		</div>
+		<{/if}>
+	</div>
+
+</div>
+<{includeq file="$theme_name/templates/footer.html.tpl"}>
+</body>
+<script type="application/javascript">
+	$(document).ready(function() {
+
+		// Check for click events on the navbar burger icon
+		$(".navbar-burger").click(function() {
+
+			// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
+			$(".navbar-burger").toggleClass("is-active");
+			$(".navbar-menu").toggleClass("is-active");
+
+		});
+	});
+</script>
+</html>

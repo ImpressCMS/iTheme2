@@ -1,0 +1,11 @@
+<nav aria-label="breadcrumb">
+	<ol class="breadcrumb">
+	<{foreach item=breadcrumb_item from=$icms_breadcrumb_items name=loop}>
+		<{if $breadcrumb_item.link}>
+		<li class="breadcrumb-item"><a href="<{$breadcrumb_item.link}>"><{$breadcrumb_item.caption}></a></li>
+		<{else}>
+		<li class="breadcrumb-item"><{$breadcrumb_item.caption}></li>
+		<{/if}>
+	<{/foreach}>
+	</ol>
+</nav>

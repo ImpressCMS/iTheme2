@@ -1,0 +1,77 @@
+header,
+footer {
+    background-image :linear-gradient( #58d4fa,#578ec1);
+    color : white;
+}
+.nav-item {
+    font-size: large;
+}
+.nav-item a {
+    color: white;
+}
+
+.navbar-nav .nav-link.active {
+    color: white;
+    font-weight: bold;
+}
+
+.card {
+    border: none;
+}
+
+.xo-block .card-header
+{
+    color: blue;
+    border-bottom-width : 3px;
+    border-bottom-color : coral;
+    text-align: center;
+    background-color: white;
+    font-weight: bold;
+}
+
+.xo-canvas-column .card-header
+{
+    color: coral;
+    border-bottom-width : 1px;
+    border-bottom-style: dashed;
+    border-bottom-color : dodgerblue;
+    font-weight: bold;
+}
+
+.xo-page .xo-block .card-body {
+    background-color: #f0f0f0;
+}
+
+.xo-canvas-column .card-body
+{
+    text-align: left;
+}
+.xo-canvas-column .list-group-item
+{
+    border-bottom: blue;
+    border-bottom-style: dashed;
+    border-bottom-width: 1px;
+}
+
+.xo-canvas-leftcolumn .card-header {
+    text-align: left;
+}
+
+.xo-canvas-rightcolumn .card-header {
+    text-align : right;
+}
+
+.xo-canvas-column li a {
+    padding-left: 15px;
+    text-decoration-line: none;
+}
+
+.xo-canvas-column li a.menuSub {
+    padding-left: 30px;
+}
+
+.xo-canvas-column li a.actlink
+{
+    font-weight: bold;
+}
+
