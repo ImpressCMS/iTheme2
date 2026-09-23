@@ -1,17 +1,46 @@
+<{assign var=theme_name value=$xoTheme->folderName}>
 <ul class="list-group list-group-flush">
-	<li class="list-group-item"><a <{if $xoops_dirname=='system'}>class="menuTop actlink"<{/if}> href="<{$xoops_url}>/" title="<{$block.lang_home}>"><{$block.lang_home}></a></li>
-	<{foreach item=module from=$block.modules}>
-	<li class="list-group-item">
-		<a <{if $xoops_dirname==$module.directory}>class="actlink"<{/if}> href="<{$xoops_url}>/modules/<{$module.directory}>/" title="<{$module.name}>"><{$module.name}></a>
-	</li>
-	<{foreach item=sublink from=$module.sublinks}>
-	<li class="list-group-item">
-		<a class="menuSub" href="<{$sublink.url}>" title="<{$sublink.name}>"><{$sublink.name}></a>
-	</li>
-	<{/foreach}>
-	<{/foreach}>
+    <li class="list-group-item">
+        <{includeq file="$theme_name/templates/components/link.html.tpl"
+            href="`$xoops_url`/"
+            label=$block.lang_home
+            class="menuTop"
+            current=$xoops_dirname
+            match="system"
+        }>
+    </li>
+    <{foreach item=module from=$block.modules}>
+    <li class="list-group-item">
+        <{includeq file="$theme_name/templates/components/link.html.tpl"
+            href="`$xoops_url`/modules/`$module.directory`/"
+            label=$module.name
+            class=""
+            current=$xoops_dirname
+            match=$module.directory
+        }>
+    </li>
+    <{foreach item=sublink from=$module.sublinks}>
+    <li class="list-group-item">
+        <{includeq file="$theme_name/templates/components/link.html.tpl"
+            href=$sublink.url
+            label=$sublink.name
+            class="menuSub"
+            current=""
+            match=""
+        }>
+    </li>
+    <{/foreach}>
+    <{/foreach}>
 
-	<{if $block.priv_enabled == true}>
-	<li class="list-group-item"><a class="<{if $xoops_dirname=='system'}> actlink<{/if}>" href="<{$xoops_url}>/privpolicy.php" title="<{$block.lang_privpolicy}>"><{$block.lang_privpolicy}></a></li>
-	<{/if}>
+    <{if $block.priv_enabled == true}>
+    <li class="list-group-item">
+        <{includeq file="$theme_name/templates/components/link.html.tpl"
+            href="`$xoops_url`/privpolicy.php"
+            label=$block.lang_privpolicy
+            class=""
+            current=$xoops_dirname
+            match="system"
+        }>
+    </li>
+    <{/if}>
 </ul>

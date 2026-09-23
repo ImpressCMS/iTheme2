@@ -1,28 +1,28 @@
-  <div class="container">
-    <form id="block_login_form" action="<{$xoops_url}>/user.php" method="post">
-    <div class="mb-3">
-        <label class="form-label" for="uname"><{$block.lang_username}></label>
-        <input type="text" name="uname" class="form-control" id="uname" value="<{$block.unamevalue}>" maxlength="25" />
-    </div>
-    <div class="mb-3">
-        <label class="form-label" for="pass"><{$block.lang_password}></label>
-        <input type="password" name="pass" id="pass" class="form-control" maxlength="32" />
-    </div>
-    <{if $block.rememberme }>
-    <div class="form-check">
-      <input type="form-check-input" name="rememberme" id="rememberme" value="" checked />
-      <label class="form-check-label" for="rememberme"><{$block.lang_rememberme}></label>
-    </div>
+<{assign var=theme_name value=$xoTheme->folderName}>
+<div class="container">
+    <{includeq file="$theme_name/templates/components/login_form.html.tpl"
+        formId="block_login_form"
+        idPrefix="block_"
+        action="`$xoops_url`/user.php"
+        unameValue=$block.unamevalue
+        showRemember=$block.rememberme
+        rememberChecked=1
+        redirect=$xoops_requesturi
+        submitLabel=$block.lang_login
+        langUsername=$block.lang_username
+        langPassword=$block.lang_password
+        langRemember=$block.lang_rememberme
+        extra=$block.sslloginlink
+    }>
+
+    <{includeq file="$theme_name/templates/components/link.html.tpl"
+        href="`$xoops_url`/user.php#lost"
+        label=$block.lang_lostpass
+    }>
+    <{if $block.registration}>
+    <{includeq file="$theme_name/templates/components/link.html.tpl"
+        href="`$xoops_url`/register.php"
+        label=$block.lang_registernow
+    }>
     <{/if}>
-    <div><input type="hidden" name="xoops_redirect" value="<{$xoops_requesturi}>" /></div>
-    <div><input type="hidden" name="op" value="login" /></div>
-        <button type="submit" class="btn btn-primary mb-3"><{$block.lang_login}></button>
-    <{$block.sslloginlink}>
-  </form>
-
-
-  <a href="<{$xoops_url}>/user.php#lost" title="<{$block.lang_lostpass}>"><{$block.lang_lostpass}></a>
-  <{if $block.registration }>
-     <a href="<{$xoops_url}>/register.php" title="<{$block.lang_registernow}>"><{$block.lang_registernow}></a>
-  <{/if}>
-  </div>
+</div>

@@ -1,54 +1,42 @@
+<{*
+    Site footer.
+
+    Params:
+        footerText  footer text, e.g. the value of icms_footer
+        columns     optional array of columns, each with: title, links (array of label/url/active items
+                    as accepted by nav_links) and/or content (raw HTML)
+        copyright   text shown after the copyright sign (line omitted unless this or showYear is set)
+        showYear    truthy to show the current year in the copyright line (default: 0)
+*}>
 <footer>
     <div class="container text-center">
         <div class="row py-5 border-top">
-            <p class="text-muted"><{$icms_footer}></p>
+            <p class="text-muted"><{$footerText}></p>
         </div>
+        <{if $columns}>
         <div class="row">
+            <{foreach from=$columns item=column}>
             <div class="col mb-3">
-                <a href="/" class="d-flex align-items-center mb-3 link-body-emphasis text-decoration-none">
-                    <svg class="bi me-2" width="40" height="32">
-                        <use xlink:href="#bootstrap"></use>
-                    </svg>
-                </a>
-                <p class="text-body-secondary">© 2023</p>
+                <{if $column.title}>
+                <h5><{$column.title}></h5>
+                <{/if}>
+                <{if $column.links}>
+                <{includeq file="$theme_name/templates/components/nav_links.html.tpl"
+                    items=$column.links
+                    listClass=''
+                    itemClass=''
+                    linkClass=''
+                }>
+                <{/if}>
+                <{$column.content}>
             </div>
-
-            <div class="col mb-3">
-                <h5>Section</h5>
-            </div>
-
-            <div class="col mb-3">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                </ul>
-            </div>
-
-            <div class="col mb-3">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                </ul>
-            </div>
-
-            <div class="col mb-3">
-                <h5>Section</h5>
-                <ul class="nav flex-column">
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                    <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                </ul>
-            </div>
+            <{/foreach}>
         </div>
+        <{/if}>
+        <{if $copyright || $showYear}>
+        <div class="row">
+            <p class="text-body-secondary">&copy; <{if $showYear}><{$smarty.now|date_format:"%Y"}> <{/if}><{$copyright}></p>
+        </div>
+        <{/if}>
     </div>
 </footer>

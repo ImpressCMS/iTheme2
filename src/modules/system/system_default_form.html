@@ -1,19 +1,20 @@
+<{assign var=theme_name value=$xoTheme->folderName}>
 <{$form.javascript}>
 <form name="<{$form.name}>" action="<{$form.action}>" method="<{$form.method}>" <{$form.extra}>>
-<h3><{$form.title}></h3>
-    <!-- start of form elements loop -->
+    <h3><{$form.title}></h3>
     <{foreach item=element from=$form.elements}>
-      <{if $element.hidden != true}>
-        <div class="mb-3" id="<{$element.name}>_row">
-          <label for="<{$element.name}>" class="form-label"><{$element.caption}></label>
-          <input type="password" class="form-control" id="<{$element.name}>" name="<{$element.name}>">
-          <{if $element.description}>
-          <div id="<{$element.name}>Help" class="form-text"><{$element.description}></div>
-          <{/if}>
-        </div>
-      <{else}>
-        <{$element.body}>
-      <{/if}>
+        <{if $element.hidden != true}>
+            <{includeq file="$theme_name/templates/components/form_field.html.tpl"
+                id=$element.name
+                name=$element.name
+                label=$element.caption
+                type="password"
+                help=$element.description
+                wrapperId="`$element.name`_row"
+                wrapperClass="mb-3"
+            }>
+        <{else}>
+            <{$element.body}>
+        <{/if}>
     <{/foreach}>
-    <!-- end of form elements loop -->
 </form>

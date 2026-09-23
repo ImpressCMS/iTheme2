@@ -1,76 +1,103 @@
+<{assign var=theme_name value=$xoTheme->folderName}>
 <{if $lang_reset !== 1}>
-
-
+<{capture name=loginBody}>
+    <{includeq file="$theme_name/templates/components/login_form.html.tpl"
+        formId="user_login_form"
+        idPrefix=""
+        action="user.php"
+        unameValue=$usercookie
+        showRemember=$rememberme
+        rememberChecked=1
+        redirect=$icms_requesturi
+        submitLabel=$lang_login
+        langUsername=$lang_username
+        langPassword=$lang_password
+        langRemember=$lang_rememberme
+        extra=""
+    }>
+    <{if $allow_registration}>
+    <div style="text-align: <{$smarty.const._GLOBAL_RIGHT}>;"><{$lang_notregister}></div>
+    <{/if}>
+<{/capture}>
+<{capture name=lostPasswordBody}>
+    <div class="mb-3"><{$lang_noproblem}></div>
+    <form action="lostpass.php" method="post">
+        <{includeq file="$theme_name/templates/components/form_field.html.tpl"
+            id="forget-email"
+            name="email"
+            type="email"
+            label=$lang_youremail
+            maxlength=60
+            wrapperClass="mb-3"
+        }>
+        <{includeq file="$theme_name/templates/components/form_hidden.html.tpl" name="op" value="mailpasswd"}>
+        <{includeq file="$theme_name/templates/components/form_hidden.html.tpl" name="t" value=$mailpasswd_token}>
+        <{includeq file="$theme_name/templates/components/button.html.tpl" label=$lang_sendpassword type="submit" variant="primary" class="" id="" name="" attrs=""}>
+    </form>
+<{/capture}>
 <div class="container">
-<div class="row">
-	<div class="col-6 offset-3">
-		<div class="xo-block card">
-			<div class="card-header"><h2><{$lang_login}></h2></div>
-			<div class="card-body"><form id="icms_block_login_form" action="user.php" method="post">
-				<div class="mb-3">
-					<label class="form-label" for="uname"><{$lang_username}></label>
-					<input type="text" name="uname" class="form-control" id="uname" value="<{$usercookie}>" maxlength="25" />
-				</div>
-				<div class="mb-3">
-					<label class="form-label" for="pass"><{$lang_password}></label>
-					<input type="password" name="pass" id="pass" class="form-control" maxlength="32" />
-				</div>
-				<{if $rememberme }>
-				<div class="form-check">
-					<input type="form-check-input" name="rememberme" id="rememberme" value="" checked />
-					<label class="form-check-label" for="rememberme"><{$lang_rememberme}></label>
-				</div>
-				<{/if}>
-				<div><input type="hidden" name="op" value="login" /></div>
-				<div><input type="hidden" name="xoops_redirect" value="<{$icms_requesturi}>"/>
-					<button type="submit" class="btn btn-primary mb-3"><{$lang_login}></button>
-				</div>
-			</form>
-
-				<a id="lost"></a>
-				<{if $allow_registration }>
-				<div style="text-align: <{$smarty.const._GLOBAL_RIGHT}>;"><{$lang_notregister}><br /></div>
-				<{/if}></div>
-		</div>
-		<div class="xo-block card">
-			<div class="card-header">
-				<h2><{$lang_lostpassword}></h2>
-			</div>
-			<div class="card-body">
-				<div class="mb-3">
-					<{$lang_noproblem}>
-				</div>
-				<form action="lostpass.php" method="post">
-					<div class="mb-1">
-						<label class="form-label" for="forget-email"><{$lang_youremail}></label>
-						<input type="email" class="form-control" name="email" id="forget-email" size="26" maxlength="60" />&nbsp;&nbsp;<input type="hidden" name="op" value="mailpasswd" /><input type="hidden" name="t" value="<{$mailpasswd_token}>" />
-					</div>
-					<button class="btn btn-primary" type="submit"><{$lang_sendpassword}></button>
-				</form>
-			</div>
-		</div>
-	</div>
-</div>
-
-
+    <div class="row">
+        <div class="col-6 offset-3">
+            <{includeq file="$theme_name/templates/components/card.html.tpl"
+                title=$lang_login
+                titleTag="h2"
+                body=$smarty.capture.loginBody
+                class="xo-block"
+            }>
+            <{includeq file="$theme_name/templates/components/card.html.tpl"
+                id="lost"
+                title=$lang_lostpassword
+                titleTag="h2"
+                body=$smarty.capture.lostPasswordBody
+                class="xo-block"
+            }>
+        </div>
+    </div>
 </div>
 <{else}>
-<div style="position: relative;height: 250px;">
-	<div style="float: <{$smarty.const._GLOBAL_LEFT}>; width: 80% ">
-		<fieldset style="padding: 10px;">
-			<legend style="font-weight: bold;"><{$smarty.const._US_RESETPASSWORD}></legend>
-			<h1><{$smarty.const._US_RESETPASSTITLE}></h1>
-			<div><{$smarty.const._US_RESETPASSINFO}></div>
-			<br />
-			<form action="resetpass.php" method="post">
-				<{$lang_currentpass}> <input type="password" name="c_password" size="26" maxlength="255" /><br />
-				<{$lang_newpass}> <input type="password" name="password" size="26" maxlength="32" /><br />
-				<{$lang_newpass2}> <input type="password" name="password2" size="26" maxlength="32" />&nbsp;&nbsp;<input type="hidden" name="op" value="resetpass" /><input type="hidden" name="t" value="<{$resetpassword_token}>" />
-		    	<br />
-		    	<br />
-		     	<input type="submit" value="<{$smarty.const._US_RESETPASSWORD}>" />
-			</form>
-		</fieldset>
-	</div>
+<{capture name=resetPasswordBody}>
+    <h3 class="h5"><{$smarty.const._US_RESETPASSTITLE}></h3>
+    <p><{$smarty.const._US_RESETPASSINFO}></p>
+    <form action="resetpass.php" method="post">
+        <{includeq file="$theme_name/templates/components/form_field.html.tpl"
+            id="c_password"
+            name="c_password"
+            type="password"
+            label=$lang_currentpass
+            maxlength=255
+            wrapperClass="mb-3"
+        }>
+        <{includeq file="$theme_name/templates/components/form_field.html.tpl"
+            id="password"
+            name="password"
+            type="password"
+            label=$lang_newpass
+            maxlength=32
+            wrapperClass="mb-3"
+        }>
+        <{includeq file="$theme_name/templates/components/form_field.html.tpl"
+            id="password2"
+            name="password2"
+            type="password"
+            label=$lang_newpass2
+            maxlength=32
+            wrapperClass="mb-3"
+        }>
+        <{includeq file="$theme_name/templates/components/form_hidden.html.tpl" name="op" value="resetpass"}>
+        <{includeq file="$theme_name/templates/components/form_hidden.html.tpl" name="t" value=$resetpassword_token}>
+        <{includeq file="$theme_name/templates/components/button.html.tpl" label=$smarty.const._US_RESETPASSWORD type="submit" variant="primary" class="" id="" name="" attrs=""}>
+    </form>
+<{/capture}>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <{includeq file="$theme_name/templates/components/card.html.tpl"
+                title=$smarty.const._US_RESETPASSWORD
+                titleTag="h2"
+                body=$smarty.capture.resetPasswordBody
+                class="xo-block"
+            }>
+        </div>
+    </div>
 </div>
 <{/if}>
