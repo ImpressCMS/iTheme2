@@ -9,11 +9,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<meta name="generator" content="ImpressCMS"/>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
 	<{$icms_module_header}>
-	<link rel="stylesheet" href="<{$icms_imageurl}>css/theme.css">
+	<!-- vite: js/theme.js -->
 </head>
 <body>
 <header>
@@ -90,17 +87,4 @@
 </div>
 <{includeq file="$theme_name/templates/footer.html.tpl"}>
 </body>
-<script type="application/javascript">
-	$(document).ready(function() {
-
-		// Check for click events on the navbar burger icon
-		$(".navbar-burger").click(function() {
-
-			// Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
-			$(".navbar-burger").toggleClass("is-active");
-			$(".navbar-menu").toggleClass("is-active");
-
-		});
-	});
-</script>
 </html>
